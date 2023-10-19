@@ -72,20 +72,54 @@ function getReason($kidGender, $reason):string
             $excuse = "$kid is ill";
             break;
         case"2":
-            $excuse = "$possessive earthworm is dead this morning";
+            $pet = getPet();
+            $excuse = "$possessive $pet is dead this morning";
             break;
 
         case"3":
-            $excuse = "$kid must go to the Quidditch training";
+            $sport = getSport();
+            $excuse = "$kid must go to the $sport training";
             break;
     }
 
     return $excuse;
 }
 
+function getSport():string
+{
+    $sports=[
+        "quidditch",
+        "aquaponey",
+        "mermaiding"
+    ];
+
+    return $sports[rand(0,count($sports)-1)];
+
+}
+
+function getPet():string
+{
+    $pets = [
+        "crab",
+        "spider",
+        "wale",
+        "earthworm"
+    ];
+
+    return $pets[rand(0,count($pets)-1)];
+}
+
 function bullshitExcuse($kidGender):string
 {
-    return "$kidGender thought it was sunday";
+    $bullshit = [
+        "was too tired",
+        "forgot to wake up",
+        "thought that was the holidays"
+    ];
+
+    $excuse = $bullshit[rand(0,count($bullshit)-1)];
+
+    return "$kidGender $excuse";
 }
 
 function getTeacher($teacherGender, $teacherName):string
