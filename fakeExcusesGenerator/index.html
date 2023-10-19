@@ -2,35 +2,43 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
     <link href="scss/style.css" type="text/css" rel="stylesheet">
     <title>Title</title>
 </head>
 <body>
-<form class="mx-auto my-2 p-2" action="fakeExcuses.php" method="post">
+<form class="mx-auto my-4 p-2" action="fakeExcuses.php" method="post">
     <div class="mb-3">
         <label class="form-label" for="name"> Name : </label>
         <input class="form-control" type="text" id="name" value="" name="name">
 
-        <p class="my-2 py-1">Gender :
-            <label class="form-label" for="F">Girl</label>
-            <input type="radio" id="F" value="F" name="gender">
-            <label class="form-label" for="M">Boy</label>
-            <input type="radio" id="M" value="M" name="gender">
+        <p class="my-2 py-1">Kid's gender :
+            <label class="form-label" for="Girl">Girl</label>
+            <input type="radio" id="Girl" value="F" name="kidGender">
+            <label class="form-label" for="Boy">Boy</label>
+            <input type="radio" id="Boy" value="M" name="kidGender">
         </p>
 
-        <label class="form-label" for="teacher"> Teacher : </label>
-        <input class="form-control"  type="text" id="teacher" value="" name="teacher">
+        <label class="form-label" for="teacherName"> Teacher's name : </label>
+        <input class="form-control"  type="text" id="teacherName" value="" name="teacherName">
+
+        <p class="my-2 py-1">Teacher's gender :
+            <label class="form-label" for="Miss">Miss</label>
+            <input type="radio" id="Miss" value="F" name="teacherGender">
+            <label class="form-label" for="Mister">Mister</label>
+            <input type="radio" id="Mister" value="M" name="teacherGender">
+        </p>
+
 
         <p class="my-2 py-1">Reason of absence</p>
-        <input type="radio" id="illness" value="illness" name="reason">
+        <input type="radio" id="illness" value="1" name="reason">
         <label class="form-label"  for="illness">Illness</label>
-        <input type="radio" id="death" value="death" name="reason">
+        <input type="radio" id="death" value="2" name="reason">
         <label class="form-label" for="death">Someone's dead</label>
-        <input type="radio" id="extra" value="extra" name="reason">
+        <input type="radio" id="extra" value="3" name="reason">
         <label class="form-label" for="extra">Too much to do</label>
-        <input type="radio" id="nothing" value="nothing" name="reason">
+        <input type="radio" id="nothing" value="4" name="reason">
         <label class="form-label" for="nothing">Sais pas</label>
 
     </div>
