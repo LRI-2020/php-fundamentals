@@ -1,6 +1,35 @@
 <?php
 
-//a e to ae
+//feedback
+
+$feedBackTests = ["notice" => "notice test", "error" => "error test", "warning" => "warning test", "undefined" => "undefined test"];
+
+foreach ($feedBackTests as $key => $value){
+
+    echo '<p>'.feedback($value,$key).'</p>';
+}
+
+function feedback($message,$class):string{
+
+    return $class== "warning" ? "warning : $message" : ($class== "error" ?  "error : $message" : "notice : $message");
+}
+//æ to ae
+
+$tests2 = ["cæcotrophie", "chænichthys","microsphæra", "sphærotheca"];
+
+foreach ($tests2 as $test) {
+    echo "<p>" . setAAndE($test) . "</p>";
+}
+
+function setAAndE($word) : string
+{
+    $letters = explode('æ',$word);
+    $result = array_merge(array_slice($letters, 0, 1), array('ae'), array_slice($letters, 1));
+    return implode($result);
+}
+
+
+//ae to æ
 $tests = ["caecotrophie", "chaenichthys", "microsphaera", "sphaerotheca"];
 
 foreach ($tests as $testAe) {
@@ -12,7 +41,6 @@ function setAE($word): string
 {
 
     $letters = str_split($word);
-
     for ($index = 0; $index < (count($letters) - 1); $index++) {
 
         $currentLetter = $letters[$index];
