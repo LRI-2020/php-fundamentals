@@ -1,33 +1,62 @@
 <?php
 
+//Create a random words generator,
+
+echo Generate();
+
+function generateWord($letterCount):string{
+    $letters = range('a', 'z');
+    $res=[];
+    for ($count = 0; $count < $letterCount; $count++) {
+        $res[] = $letters[rand(0, count($letters) - 1)];
+    }
+
+    return implode($res);
+}
+
+function Generate()
+{
+    $word1Count = rand(1, 5);
+    $word2Count = rand(7, 15);
+    $word1 = generateWord($word1Count);
+    $word2 = generateWord($word2Count);
+
+    return '<p>'.$word1. ' '.$word2.'</p>';
+
+}
+
+
 //feedback
+echo feedback("test sans class");
 
 $feedBackTests = ["notice" => "notice test", "error" => "error test", "warning" => "warning test", "undefined" => "undefined test"];
 
-foreach ($feedBackTests as $key => $value){
+foreach ($feedBackTests as $key => $value) {
 
-    echo feedback($value,$key);
+    echo feedback($value, $key);
 }
 
-function feedback($message,$class):string{
+function feedback($message, $class = "info"): string
+{
 
-    $classRes = $class== "warning" ? "warning" : ($class== "error" ?  "error" : "notice");
+    $classRes = $class == "warning" ? "warning" : ($class == "error" ? "error" : "info");
 
     $message = "$classRes : $message";
 
-    return '<div class='.$classRes.'>' .$message.'</div>';
+    return '<div class=' . $classRes . '>' . $message . '</div>';
 }
+
 //æ to ae
 
-$tests2 = ["cæcotrophie", "chænichthys","microsphæra", "sphærotheca"];
+$tests2 = ["cæcotrophie", "chænichthys", "microsphæra", "sphærotheca"];
 
 foreach ($tests2 as $test) {
     echo "<p>" . setAAndE($test) . "</p>";
 }
 
-function setAAndE($word) : string
+function setAAndE($word): string
 {
-    $letters = explode('æ',$word);
+    $letters = explode('æ', $word);
     $result = array_merge(array_slice($letters, 0, 1), array('ae'), array_slice($letters, 1));
     return implode($result);
 }
