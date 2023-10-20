@@ -1,4 +1,23 @@
 <?php
+// Make it DRY
+
+displayVol(5,2);
+displayVol(3,4);
+
+function displayVol($r,$h):void{
+
+    echo 'The volume of a cone which ray is ' .$r.' and height is '.$h.' = '
+        .calculate_cone_vol($r,$h) . ' cm<sup>3</sup><br />';
+}
+function calculate_cone_vol($r, $h):float{
+    return $r*$r*3.14*$h*(1/3);
+}
+// Volume of a cone which ray is 5 and height is 2
+$volume = 5 * 5 * 3.14 * 2 * (1/3);
+echo 'The volume of a cone which ray is 5 and height is 2 = ' . $volume . ' cm<sup>3</sup><br />';
+// Volume of a cone which ray is 3 and height is 4
+$volume = 3 * 3 * 3.14 * 4 * (1/3);
+echo 'The volume of a cone which ray is 3 and height is 4 = ' . $volume . ' cm<sup>3</sup><br />';
 
 //De-capitalize
 
@@ -10,10 +29,8 @@ function toLower(string $test): string
     $lowercaseWords = [];
 
     foreach ($words as $word) {
-
         $lowercaseWords[] = strtolower($word);
     }
-
     return implode(" ", $lowercaseWords);
 }
 
