@@ -6,12 +6,16 @@ $feedBackTests = ["notice" => "notice test", "error" => "error test", "warning" 
 
 foreach ($feedBackTests as $key => $value){
 
-    echo '<p>'.feedback($value,$key).'</p>';
+    echo feedback($value,$key);
 }
 
 function feedback($message,$class):string{
 
-    return $class== "warning" ? "warning : $message" : ($class== "error" ?  "error : $message" : "notice : $message");
+    $classRes = $class== "warning" ? "warning" : ($class== "error" ?  "error" : "notice");
+
+    $message = "$classRes : $message";
+
+    return '<div class='.$classRes.'>' .$message.'</div>';
 }
 //æ to ae
 
