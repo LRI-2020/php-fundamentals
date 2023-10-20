@@ -1,12 +1,33 @@
 <?php
 
+//De-capitalize
+
+$test = "JE DOIS ETRE EN MINUSCULE";
+
+function toLower(string $test): string
+{
+    $words = explode(" ", $test);
+    $lowercaseWords = [];
+
+    foreach ($words as $word) {
+
+        $lowercaseWords[] = strtolower($word);
+    }
+
+    return implode(" ", $lowercaseWords);
+}
+
+echo toLower($test);
+
+
 //Create a random words generator,
 
 echo Generate();
 
-function generateWord($letterCount):string{
+function generateWord($letterCount): string
+{
     $letters = range('a', 'z');
-    $res=[];
+    $res = [];
     for ($count = 0; $count < $letterCount; $count++) {
         $res[] = $letters[rand(0, count($letters) - 1)];
     }
@@ -21,7 +42,7 @@ function Generate()
     $word1 = generateWord($word1Count);
     $word2 = generateWord($word2Count);
 
-    return '<p>'.$word1. ' '.$word2.'</p>';
+    return '<p>' . $word1 . ' ' . $word2 . '</p>';
 
 }
 
